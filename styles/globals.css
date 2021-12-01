@@ -1,11 +1,14 @@
+/* 
+  or import tailwind directly in ../pages/_app.js
+  https://tailwindcss.com/docs/guides/nextjs
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
+/* todo: switch to tailwindcss */
 body {
   display: flex;
   justify-content: center;
