@@ -12,7 +12,7 @@ export const getVisibility = (unitSystem, visibilityInMeters) =>
     unitSystem == "metric" ? (visibilityInMeters / 1000).toFixed(1) : kmToMiles(visibilityInMeters / 1000);
 
 export const getTime = (unitSystem, currentTime, timezone) =>
-    unitSystem == "metric" ? unixToLocalTime(currentTime, timezone) : timeTo12HourFormat(unixToLocalTime(currentTime, timezone));
+    unitSystem == "metric" ? unixToLocalTime(currentTime, timezone) : timeTo12HoursFormat(unixToLocalTime(currentTime, timezone));
   
 export const getAMPM = (unitSystem, currentTime, timezone) =>
     unitSystem === "imperial" ? unixToLocalTime(currentTime, timezone).split(":")[0] >= 12
