@@ -38,7 +38,34 @@ const App = () => {
 
   return weatherData && !weatherData.message ? (
     <div className={styles.wrapper}>
-      <p>Weather App Wrapper</p>
+      <MainCard
+        city={weatherData.name}
+        country={weatherData.sys.country}
+        description={weatherData.weather[0].description}
+        iconName={weatherData.weather[0].icon}
+        unitSystem={unitSystem}
+        weatherData={weatherData}
+      />
+      <ContentBox>
+        <Header>
+          <DateAndTime weatherData={weatherData} unitSystem={unitSystem} />
+          <Search
+            placeHolder="Search a city ..."
+            value={cityInput}
+            onFocus={ (e) => {
+              e.target.value = "";
+              e.target.placeholder = "";
+            }}
+            onChange={ (e) => setCityInput(e.target.value)}
+            onKeyDown={ (e) => {
+              e.keyCode === 13 && setTriggerFetch(!triggerFetch);
+              e.target.placeholder = "Search a city ..."
+            }}
+          />
+        </Header>
+        <MetricsBox weatherData={weatherData} unitSystem={unitSystem} />
+        <UnitSwitch onClick={changeSystem} unitSystem={unitSystem} />
+      </ContentBox>
     </div>
   ) : weatherData && weatherData.message ? (
     <ErrorScreen errorMessage="City not found, try again!">
