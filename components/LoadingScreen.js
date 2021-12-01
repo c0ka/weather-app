@@ -1,0 +1,1 @@
+export const loadingScreen = ({ loadingMessage }) => <h1>{loadingMessage}</h1>;
