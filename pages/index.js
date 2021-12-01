@@ -1,14 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { MainCard } from "../components/MainCard";
-import { ContentBox } from "../components/ContentBox";
-import { Header } from "../components/Header";
-import { DateAndTime } from "../components/DateAndTime";
-import { Search } from "../components/Search";
-import { MetricsBox } from "../components/MetricsBox";
-import { UnitSwitch } from "../components/UnitSwitch";
-import { LoadingScreen } from "../components/LoadingScreen";
-import { ErrorScreen } from "../components/ErrorScreen";
+import { MainCard, ContentBox, Header, DateAndTime, Search, MetricsBox, UnitSwitch, 
+  LoadingScreen, ErrorScreen } from "../components";
 
 import styles from "../styles/Home.module.css"
 
@@ -18,19 +11,18 @@ const App = () => {
   const [weatherData, setWeatherData] = useState();
   const [unitSystem, setUnitSystem] =useState("metric");
 
-  useEffect(() => {
-    const getData= async () => {
-      const res = await fetch("api/data", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cityInput }),
-      });
-      const data = await res.json();
-      setWeatherData({...data});
-      setCityInput("");
-    };
-    getData();
-  }, [triggerFetch]);
+  async function getData() {
+    const res = await fetch("api/data", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ cityInput }),
+    });
+    const data = await res.json();
+    setWeatherData({...data});
+    setCityInput("");
+  }
+
+  useEffect( _ => getData(), [triggerFetch]);
 
   const changeSystem = () => unitSystem == "metric" ? setUnitSystem("imperial") : setUnitSystem("metric");
 
