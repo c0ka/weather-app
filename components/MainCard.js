@@ -11,7 +11,7 @@ export const MainCard = ({
     weatherData,
 }) => {
     return (
-        <div className={styles.wrapper}>
+        <div className="col-span-1">
             <h1 className={styles.location}>
                 {city}, {country}
             </h1>
