@@ -11,15 +11,18 @@ const App = () => {
   const [weatherData, setWeatherData] = useState();
   const [unitSystem, setUnitSystem] =useState("metric");
 
-  useEffect( async () => {
-    const res = await fetch("api/data", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ cityInput }),
-    });
-    const data = await res.json();
-    setWeatherData({...data});
-    setCityInput("");
+  useEffect( () => {
+    async function getData() {
+      const res = await fetch("api/data", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cityInput }),
+      });
+      const data = await res.json();
+      setWeatherData({...data});
+      setCityInput("");
+    }
+    getData();
   }, [triggerFetch]);
 
   const changeSystem = () => unitSystem == "metric" ? setUnitSystem("imperial") : setUnitSystem("metric");
