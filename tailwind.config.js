@@ -1,3 +1,4 @@
+// import the default tailwind theme
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
@@ -7,8 +8,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Varela Round"', ...defaultTheme.fontFamily.sans],
-      }
+        // sans: ['"Varela Round"', ...defaultTheme.fontFamily.sans],
+        varela: ['"Varela Round"', 'sans-serif'],
+      },
     },
   },
   variants: {

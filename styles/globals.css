@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 /* 
   or import tailwind directly in ../pages/_app.js
   https://tailwindcss.com/docs/guides/nextjs
@@ -6,19 +7,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
-
 /* todo: switch to tailwindcss */
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  min-height: 100vh;
   background-image: radial-gradient(
     circle 993px at 0.5% 50.5%,
     rgba(137, 171, 245, 0.37) 0%,
     rgba(245, 247, 252, 1) 100.2%
   );
-  /* font-family: "Varela Round", sans-serif; */
+  @apply font-varela;
+  @apply flex justify-center items-center w-screen min-h-screen;
 }
