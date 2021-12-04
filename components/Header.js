@@ -1,5 +1,3 @@
-import styles from "./Header.module.css";
-
 export const Header = ({ children }) => {
-  return <div className={styles.wrapper}>{children}</div>;
+  return <div className="grid grid-cols-3 gap-5 mb-5">{children}</div>;
 }

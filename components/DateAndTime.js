@@ -1,10 +1,9 @@
 import { getWeekDay, getTime, getAMPM } from "../services/helpers";
-import styles from "./DateAndTime.module.css";
 
 export const DateAndTime = ({ weatherData, unitSystem }) => {
   return (
-    <div className={styles.wrapper}>
-      <h2>
+    <div className="col-span-2 flex items-center">
+      <h2 className="text-2xl font-semibold">
         {`${getWeekDay(weatherData)}, ${getTime(
           unitSystem,
           weatherData.dt,

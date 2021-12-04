@@ -1,5 +1,3 @@
-import styles from "./Search.module.css";
-
 export const Search = ({
   placeHolder,
   value,
@@ -9,7 +7,7 @@ export const Search = ({
 }) => {
   return (
     <input
-      className={styles.search}
+      className="h-10 text-lg text-gray-800 text-right px-2 rounded-lg"
       type="text"
       placeholder={placeHolder}
       value={value}

@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { MainCard, ContentBox, Header, DateAndTime, Search, MetricsBox, UnitSwitch, 
   LoadingScreen, ErrorScreen } from "../components";
 
-import styles from "../styles/Home.module.css"
-
 const App = () => {
   const [cityInput, setCityInput] = useState("Nanjing");
   const [triggerFetch, setTriggerFetch] = useState(true);
@@ -28,7 +26,8 @@ const App = () => {
   const changeSystem = () => unitSystem == "metric" ? setUnitSystem("imperial") : setUnitSystem("metric");
 
   return weatherData && !weatherData.message ? (
-    <div className="grid grid-cols-3 max-w-7xl bg-white bg-opacity-95 shadow-xl backdrop-filter backdrop-blur-sm rounded-3xl overflow-hidden">
+    <div className="grid grid-cols-3 max-w-7xl bg-white bg-opacity-95 shadow-xl 
+      backdrop-filter backdrop-blur-sm rounded-3xl overflow-hidden">
       <MainCard
         city={weatherData.name}
         country={weatherData.sys.country}
